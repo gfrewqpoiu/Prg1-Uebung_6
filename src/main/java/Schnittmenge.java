@@ -7,9 +7,9 @@ public class Schnittmenge {
         }
         else{
             int counter = 0;
-            Arrays.sort(a);
+            Arrays.sort(a); //Binary search requires sorted Arrays.
             Arrays.sort(b);
-            for (int i = 0; i < a.length; i++) {
+            for (int i = 0; i < a.length; i++) { //Figure out how many elements are in both arrays
                 int position = Arrays.binarySearch(b, a[i]);
                 if(position >= 0){
                     counter++;
@@ -17,7 +17,7 @@ public class Schnittmenge {
             }
             int rueckgabe[] = new int[counter];
             counter = 0;
-            for (int i = 0; i < a.length ; i++) {
+            for (int i = 0; i < a.length ; i++) { //Actually create the array with those elements
                 int position = Arrays.binarySearch(b, a[i]);
                 if (position >= 0){
                     rueckgabe[counter] = b[position];
@@ -34,7 +34,7 @@ public class Schnittmenge {
         int c[] = new int[]{0, 1, 2, 3};
         int d[] = new int[]{4, 5, 6};
         int e[] = new int[]{0, 1, 2, -100};
-        System.out.println(Arrays.toString(schnittmenge(a, b)));
+        System.out.println(Arrays.toString(schnittmenge(a, b))); //For some reason the Arrays need to be converted first.
         System.out.println(Arrays.toString(schnittmenge(c, d)));
         System.out.println(Arrays.toString(schnittmenge(e, e)));
     }
